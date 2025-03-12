@@ -1,0 +1,32 @@
+name: Inject API Key & Deploy
+
+on:
+  push:
+    branches:
+      - main  # Runs on push to main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Inject OpenAI API Key
+      run: echo '{"apiKey": "${{ secrets.OPENAI_API_KEY }}"}' > api_key.json
+
+    - name: Commit & Push Changes
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@github.com"
+        git add api_key.json
+        git commit -m "Inject API Key"
+        git push origin main
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: ./
