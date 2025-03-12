@@ -3,7 +3,7 @@ name: Inject API Key & Deploy
 on:
   push:
     branches:
-      - main  # Runs on push to main branch
+      - main  # Runs on push to the main branch
 
 jobs:
   deploy:
@@ -14,7 +14,8 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Inject OpenAI API Key
-      run: echo '{"apiKey": "${{ secrets.OPENAI_API_KEY }}"}' > api_key.json
+      run: |
+        echo '{ "apiKey": "'"${{ secrets.OPENAI_API_KEY }}"'" }' > api_key.json
 
     - name: Commit & Push Changes
       run: |
