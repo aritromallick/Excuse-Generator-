@@ -3,7 +3,7 @@ name: Inject API Key & Deploy
 on:
   push:
     branches:
-      - main
+      - main  # Runs on push to the main branch
 
 jobs:
   deploy:
