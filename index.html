@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excuse Generator - The Most Reliable Excuse Maker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Excuse Generator</h1>
+        <p class="subtitle">A professionally curated database of excuses for every situation.</p>
+
+        <label for="category">Select Excuse Category:</label>
+        <select id="category">
+            <option value="work">Work/Office</option>
+            <option value="school">School/College</option>
+            <option value="social">Social Events</option>
+            <option value="family">Family Obligations</option>
+            <option value="random">Random Funny</option>
+        </select>
+
+        <label for="tone">Select Tone:</label>
+        <select id="tone">
+            <option value="professional">Professional</option>
+            <option value="believable">Believable</option>
+            <option value="funny">Funny/Sarcastic</option>
+            <option value="dramatic">Over-the-Top</option>
+        </select>
+
+        <button onclick="generateExcuse()">Generate Excuse</button>
+
+        <div id="result-container">
+            <p id="excuse"></p>
+            <button id="copy-btn" onclick="copyExcuse()">Copy</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
