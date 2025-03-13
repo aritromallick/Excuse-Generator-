@@ -192,21 +192,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    const categorySelect = document.getElementById("category");
-    const toneSelect = document.getElementById("tone");
-    const generateBtn = document.getElementById("generateBtn");
-    const excuseOutput = document.getElementById("excuseOutput");
+    function generateExcuse() {
+    const category = document.getElementById("category").value;
+    const tone = document.getElementById("tone").value;
+    
+    if (excuses[category] && excuses[category][tone]) {
+        const excuseList = excuses[category][tone];
+        const randomExcuse = excuseList[Math.floor(Math.random() * excuseList.length)];
+        document.getElementById("excuse").innerText = randomExcuse;
+        document.getElementById("result-container").style.display = "block";
+    } else {
+        document.getElementById("excuse").innerText = "No excuse found!";
+    }
+}
 
-    generateBtn.addEventListener("click", function () {
-        const selectedCategory = categorySelect.value;
-        const selectedTone = toneSelect.value;
-
-        if (excuseCategories[selectedCategory] && excuseCategories[selectedCategory][selectedTone]) {
-            const excuses = excuseCategories[selectedCategory][selectedTone];
-            const randomExcuse = excuses[Math.floor(Math.random() * excuses.length)];
-            excuseOutput.textContent = randomExcuse;
-        } else {
-            excuseOutput.textContent = "Oops! No excuses found. Try again!";
-        }
+function copyExcuse() {
+    const excuseText = document.getElementById("excuse").innerText;
+    navigator.clipboard.writeText(excuseText).then(() => {
+        alert("Excuse copied to clipboard!");
     });
-});
+}
