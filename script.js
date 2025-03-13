@@ -1,6 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const excuseCategories = {
-        "Work/Office": {
+const excuses = {
+	"Work/Office": {
             Professional: [
                 "I have a client presentation that requires my attention.",
                 "An urgent deadline has just been moved up unexpectedly.",
@@ -190,9 +189,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 "I’m about to face a magical duel with my neighbor’s garden gnome."
             ]
         }
-    };
-
-    function generateExcuse() {
+};
+function generateExcuse() {
     const category = document.getElementById("category").value;
     const tone = document.getElementById("tone").value;
     
