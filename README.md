@@ -47,7 +47,7 @@ Or simply visit the live site above!
 
 📧 Contributing & Support
 Got an idea for a new excuse or feature? Feel free to open an issue or submit a pull request!
-For any questions, reach out at [your-email@example.com].
+For any questions, reach out at [aritromallick2022.com].
 
 🔹 Star this repo if you found it useful! ⭐
 🔹 Share with friends who need excuses! 🤣
